@@ -19,20 +19,6 @@ type Config struct {
 	// HTTP
 	HTTPHost string
 	HTTPPort int
-
-	// Mongo
-	MongoHost     string
-	MongoPort     int
-	MongoDatabase string
-
-	// MQTT
-	MQTTHost string
-	MQTTPort int
-
-	// Influx
-	InfluxHost     string
-	InfluxPort     int
-	InfluxDatabase string
 }
 
 // Parse TOML config
@@ -47,7 +33,7 @@ func (cfg *Config) Parse() {
 		confFile = os.Args[1]
 	} else {
 		// default cfg path to source dir, as we keep cfg.yml there
-		confFile = os.Getenv("GOPATH") + "/src/github.com/nodesig/weio-cloud/config/config.toml"
+		confFile = os.Getenv("GOPATH") + "/src/github.com/nodesign/weio-cloud/config/config.toml"
 	}
 
 	if _, err := toml.DecodeFile(confFile, &cfg); err != nil {
