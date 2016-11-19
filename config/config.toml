@@ -8,13 +8,5 @@
 
 # HTTP
 httpHost = "0.0.0.0"
-httpPort = 7070
+httpPort = 9090
 
-# Mongo
-mongoHost = "localhost"
-mongoPort = 27017
-mongoDatabase = "mainflux"
-
-# MQTT
-mqttHost = "localhost"
-mqttPort = 1883

@@ -12,9 +12,8 @@ import (
 	"flag"
 	"fmt"
 	"github.com/fatih/color"
-	"github.com/mainflux/mainflux-core/api"
-	"github.com/mainflux/mainflux-core/config"
-	"github.com/mainflux/mainflux-core/db"
+	"github.com/nodesign/weio-cloud/api"
+	"github.com/nodesign/weio-cloud/config"
 	"os"
 	"runtime"
 	"strconv"
@@ -113,21 +112,19 @@ func main() {
 	var cfg config.Config
 	cfg.Parse()
 
-	// MongoDb
-	db.InitMongo(cfg.MongoHost, cfg.MongoPort, cfg.MongoDatabase)
-
 	// Serve HTTP
 	go api.HTTPServer(cfg)
 
 	// Print banner
-	color.Cyan(banner)
-	color.Cyan("Magic happens on port " + strconv.Itoa(cfg.HTTPPort))
+	color.Yellow(banner)
+	color.Yellow("Magic happens on port " + strconv.Itoa(cfg.HTTPPort))
 
 	/** Keep main() runnig */
 	runtime.Goexit()
 }
 
 var banner = `
+
 8   8  8      8  8"""88    8""""8                         
 8   8  8 eeee 8  8    8    8    " e     eeeee e   e eeeee 
 8e  8  8 8    8e 8    8    8e     8     8  88 8   8 8   8 
@@ -135,9 +132,9 @@ var banner = `
 88  8  8 88   88 8    8    88   e 88    8   8 88  8 88  8 
 88ee8ee8 88ee 88 8eeee8    88eee8 88eee 8eee8 88ee8 88ee8 
 
-			   == WeIO goes high ==
+               == WeIO goes high ==
        
-    Made with <3 by Drasko DRASKOVIC and Uros PETREVSKI
+Made with <3 by Drasko DRASKOVIC and Uros PETREVSKI
 [w] http://weio.net
 [t] @weionoet
 

@@ -12,7 +12,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/mainflux/mainflux-core/config"
+	"github.com/nodesign/weio-cloud/config"
 
 	"github.com/go-zoo/bone"
 )
@@ -29,22 +29,8 @@ func HTTPServer(cfg config.Config) {
 	mux.Get("/status", http.HandlerFunc(getStatus))
 
 	// Devices
-	mux.Post("/devices", http.HandlerFunc(createDevice))
-	mux.Get("/devices", http.HandlerFunc(getDevices))
-
-	mux.Get("/devices/:device_id", http.HandlerFunc(getDevice))
-	mux.Put("/devices/:device_id", http.HandlerFunc(updateDevice))
-
-	mux.Delete("/devices/:device_id", http.HandlerFunc(deleteDevice))
-
-	// Channels
-	mux.Post("/channels", http.HandlerFunc(createChannel))
-	mux.Get("/channels", http.HandlerFunc(getChannels))
-
-	mux.Get("/channels/:channel_id", http.HandlerFunc(getChannel))
-	mux.Put("/channels/:channel_id", http.HandlerFunc(updateChannel))
-
-	mux.Delete("/channels/:channel_id", http.HandlerFunc(deleteChannel))
+	mux.Post("/containers", http.HandlerFunc(createContainer))
+	mux.Get("/containers", http.HandlerFunc(getContainers))
 
 	/**
 	 * Server
